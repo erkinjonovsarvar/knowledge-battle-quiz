@@ -4,6 +4,7 @@ window.BRAND = {
   university: 'Profi University',
   faculty: 'Iqtisodiyot fakulteti',
   game: 'Iqtisodiy bilimlar bellashuvi',
+  author: 'Sarvar Erkinjonov',   // dastur muallifi — har ekranda kichik qilib ko'rsatiladi
 };
 window.brandHtml = function (large, subtitle) {
   const B = window.BRAND;
@@ -11,5 +12,6 @@ window.brandHtml = function (large, subtitle) {
   return `<div class="brandbar ${large ? 'lg' : ''}">
     <img class="emb" src="logo.png" alt="" onerror="this.onerror=null;this.src='emblem.svg'">
     <div style="min-width:0"><div class="uni">${esc(B.university)} · ${esc(B.faculty)}</div>
-      <div class="ttl">${esc(subtitle || B.game)}</div></div></div>`;
+      <div class="ttl">${esc(subtitle || B.game)}</div>
+      ${B.author ? `<div class="by">Muallif: ${esc(B.author)}</div>` : ''}</div></div>`;
 };

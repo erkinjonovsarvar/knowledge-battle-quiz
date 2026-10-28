@@ -66,6 +66,8 @@ select option { color: #111; }
 .brandbar.lg .uni { font-size: .82rem; }
 .brandbar.lg .ttl { font-size: 1.7rem; white-space: normal; }
 .brandbar .sub { color: var(--muted); font-size: .85rem; }
+.brandbar .by { color: var(--muted); font-size: .72rem; line-height: 1.3; }
+.brandbar.lg .by { font-size: .8rem; }
 .rule { height: 1px; border: 0; margin: 14px auto; width: 120px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
 /* javob kataklari */
