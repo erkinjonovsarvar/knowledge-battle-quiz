@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#0b1f3a">
+<title>Profi University · Iqtisodiy bellashuv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="emblem.svg">
+<script src="brand.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { transition: background .4s; }
+  body.good { background: radial-gradient(700px 400px at 50% 20%, rgba(230,195,92,.18), transparent 60%), linear-gradient(170deg, #0f5a3c, #0a3a28); }
+  body.bad { background: radial-gradient(700px 400px at 50% 20%, rgba(255,255,255,.08), transparent 60%), linear-gradient(170deg, #6e1f1c, #3f1210); }
+  body.none { background: linear-gradient(170deg, #26334a, #141c2b); }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 16px; min-height: 100vh; display: flex; flex-direction: column; }
+  .bar { display: flex; align-items: center; gap: 10px; font-weight: 800; margin-bottom: 14px; }
+  .bar .me { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .bar .me span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar .sc { background: var(--gold-soft); color: var(--gold-2); border: 1px solid var(--line); padding: 6px 12px; border-radius: 99px; white-space: nowrap; }
+  .big { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; }
+  .huge { font-size: 4.5rem; line-height: 1; }
+  .q { background: var(--ivory); color: var(--ink); border-radius: 12px; padding: 16px 18px; font-family: var(--serif); font-size: 1.18rem; font-weight: 700; line-height: 1.35; margin-bottom: 12px; border-top: 3px solid var(--gold); }
+  .qmeta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; font-size: .9rem; margin-bottom: 8px; }
+  .answers { display: grid; gap: 10px; flex: 1; align-content: start; }
+  .answers.nolabel { grid-template-columns: 1fr 1fr; flex: 1; align-content: stretch; }
+  .ans { display: flex; align-items: center; gap: 12px; text-align: left; padding: 16px; border-radius: 14px; font-size: 1.05rem; font-weight: 800; min-height: 64px; box-shadow: 0 6px 16px rgba(0,0,0,.25); color: #fff; border: 1px solid rgba(255,255,255,.14); }
+  .answers.nolabel .ans { justify-content: center; font-size: 3rem; min-height: 150px; }
+  .ans.chosen { outline: 3px solid var(--gold-2); outline-offset: 2px; }
+  .ans.faded { opacity: .35; }
+  .center-box { flex: 1; display: grid; place-items: center; text-align: center; }
+  .avatars { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .avatars button { font-size: 1.5rem; padding: 6px 0; width: 46px; flex: none; background: rgba(5,15,32,.4); scroll-snap-align: start; }
+  .avatars button.sel { background: var(--gold-soft); border-color: var(--gold-2); }
+  .field { display: grid; gap: 6px; margin-bottom: 14px; text-align: left; }
+  .field > span { font-weight: 800; }
+  .pulse { animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.08); } }
+  .mist { background: rgba(0,0,0,.2); border-radius: 14px; padding: 14px; margin-bottom: 10px; text-align: left; }
+  .mist .o { padding: 6px 10px; border-radius: 8px; margin-top: 6px; font-size: .95rem; }
+  .mist .o.ok { background: rgba(47,191,113,.35); font-weight: 800; }
+  .mist .o.my { background: rgba(229,72,77,.4); text-decoration: line-through; }
+  .podium-list { display: grid; gap: 8px; margin: 14px 0; }
+  .podium-list div { display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,.2); padding: 10px 14px; border-radius: 12px; font-weight: 800; }
+  .podium-list b { margin-left: auto; }
+  .teams { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .teams button { display: flex; align-items: center; gap: 8px; text-align: left; background: rgba(0,0,0,.2); border: 2px solid transparent; padding: 10px; }
+  .teams button.sel { border-color: var(--gold-2); background: var(--tc); }
+  .teams button small { display: block; color: var(--muted); font-weight: 600; }
+  .tbadge { display: inline-flex; gap: 4px; align-items: center; padding: 3px 10px; border-radius: 99px; font-size: .85rem; background: var(--tc); }
+  .tlist { display: grid; gap: 6px; margin-top: 12px; text-align: left; }
+  .tlist div { display: flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 10px; background: rgba(0,0,0,.2); border-left: 6px solid var(--tc); font-weight: 800; }
+  .tlist div.mine { background: rgba(255,255,255,.18); }
+  .tlist b { margin-left: auto; }
+  .pinline { display: flex; justify-content: space-between; align-items: center; background: rgba(5,15,32,.45); border: 1px solid var(--line-soft); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; }
+  .pinline b { font-family: var(--serif); color: var(--gold-2); letter-spacing: .12em; font-size: 1.15rem; }
+  .pinline button { padding: 4px 10px; font-size: .8rem; }
+  .tline { display: flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 700; font-size: .9rem; }
+  .tline .timer-bar { flex: 1; }
+  .tline span { min-width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+  .tline span.low { color: #ff9a8f; }
+  .lobbybrand { margin-top: 26px; opacity: .9; }
+  .tcard { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; padding: 10px 16px; border-radius: 12px; background: var(--tc); font-weight: 800; }
+  .footer { margin-top: 26px; padding-top: 14px; border-top: 1px solid var(--line-soft); display: flex; justify-content: center; }
+  .footer .brandbar .emb { width: 30px; height: 30px; } .footer .brandbar .ttl { font-size: .95rem; }
+  @media (max-width: 400px) {
+    .tbadge .tname { display: none; }
+    .q { font-size: 1.08rem; padding: 14px 15px; }
+    .ans { padding: 13px; font-size: 1rem; min-height: 56px; }
+    .huge { font-size: 3.8rem; }
+  }
+  .fb { padding: 12px; border-radius: 12px; margin-top: 12px; font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div id="conn" class="conn hidden">Aloqa uzildi… qayta ulanmoqda</div>
+<script>
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+const OPTCLS = ['opt-a', 'opt-b', 'opt-c', 'opt-d', 'opt-e', 'opt-f'];
+const AVATARS = ['🦊', '🐼', '🦁', '🐯', '🐸', '🐵', '🦉', '🐧', '🐙', '🦄', '🐝', '🐢', '🐬', '🦋', '🐻', '🐨', '🦒', '🐳', '🦖', '🐞', '🚀', '⚡', '🌟', '🍀', '🎯', '🔥', '💎', '🎸'];
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+const app = $('#app');
+
+let token = store.get('token', ''), S = null, offset = 0, es = null, viewKey = '', pending = null, practice = null;
+const urlPin = new URLSearchParams(location.search).get('pin') || '';
+
+function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 3000); }
+let pollGen = 0, pollAbort = null;
+async function connect() {
+  // token o'zgarsa (kirish/qayta kirish) eski so'rovni to'xtatib, yangisini boshlaymiz
+  const gen = ++pollGen;
+  if (pollAbort) pollAbort.abort();
+  let v = 0;
+  while (gen === pollGen) {
+    pollAbort = new AbortController();
+    try {
+      const r = await fetch('/api/poll?role=player&v=' + v + '&token=' + encodeURIComponent(token), { cache: 'no-store', signal: pollAbort.signal });
+      if (!r.ok) throw new Error(r.status);
+      const j = await r.json();
+      if (gen !== pollGen) return;
+      $('#conn').classList.add('hidden');
+      v = j.v; S = j.view; offset = S.serverNow - Date.now(); render();
+    } catch {
+      if (gen !== pollGen) return;
+      $('#conn').classList.remove('hidden');
+      await new Promise(r => setTimeout(r, 1500));
+    }
+  }
+}
+const now = () => Date.now() + offset;
+let wake = null;
+async function keepAwake() { try { if (!wake && navigator.wakeLock) { wake = await navigator.wakeLock.request('screen'); wake.onrelease = () => wake = null; } } catch {} }
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S && S.phase !== 'nojoin') keepAwake(); });
+
+function render() {
+  if (practice) return;   // mashq rejimida jonli yangilanish ekranni almashtirmaydi
+  if (S.idx !== render.idx) { render.idx = S.idx; pending = null; }
+  const k = S.phase === 'nojoin' ? ['nojoin', S.open, !!S.teams].join('|') : [S.phase, S.idx, S.myChoice, S.paused].join('|');
+  if (k === viewKey && S.phase !== 'lobby') return;   // nojoin: to'ldirilayotgan formani buzmaymiz
+  const prev = viewKey.split('|')[0];
+  viewKey = k;
+  document.body.className = '';
+  ({ nojoin: vJoin, kicked: vKicked, lobby: vLobby, get_ready: vReady, question: vQuestion, reveal: vResult, leaderboard: vResult, final: vFinal }[S.phase] || vJoin)();
+  if (S.phase === 'reveal' && prev !== 'reveal' && navigator.vibrate) navigator.vibrate(S.result && S.result.correct ? 80 : [60, 60, 60]);
+}
+function topBar() {
+  return `<div class="bar"><div class="me"><span class="avatar">${esc(S.avatar)}</span><span>${esc(S.name)}</span></div>
+    ${S.team ? `<span class="tbadge" style="--tc:${S.team.color}">${S.team.emoji}<span class="tname"> ${esc(S.team.name)}</span></span>` : ''}
+    ${S.streak >= 2 ? `<span title="Ketma-ket to‘g‘ri">🔥${S.streak}</span>` : ''}<span class="sc">${S.score} ball</span></div>`;
+}
+
+function vJoin() {
+  let avatar = store.get('avatar', AVATARS[Math.floor(Math.random() * AVATARS.length)]);
+  app.innerHTML = `<div class="center-box"><div class="card" style="width:100%">
+    ${brandHtml(true)}<hr class="rule">
+    ${S.open === false ? '<p style="color:var(--gold)">Hozir faol o‘yin yo‘q. O‘qituvchi o‘yinni ochishini kuting.</p>' : ''}
+    ${urlPin ? `<div class="pinline" id="pinline"><span>O‘yin PIN: <b>${esc(urlPin)}</b></span><button type="button" class="btn-ghost" id="pinEdit">O‘zgartirish</button></div>` : ''}
+    <label class="field ${urlPin ? 'hidden' : ''}" id="pinField"><span>O‘yin PIN kodi</span><input id="pin" type="text" inputmode="numeric" maxlength="6" placeholder="6 xonali kod" value="${esc(urlPin || store.get('pin', ''))}"></label>
+    <label class="field"><span>Ism va familiyangiz</span><input id="name" type="text" maxlength="24" placeholder="Masalan: Aziza Karimova" value="${esc(store.get('name', ''))}"></label>
+    ${S.teams ? `<div class="field"><span>Jamoangizni tanlang</span><div class="teams" id="tm">${S.teams.map(t => `<button type="button" data-i="${t.i}" style="--tc:${t.color}"><span class="avatar">${t.emoji}</span><span>${esc(t.name)}<small>${t.members} kishi</small></span></button>`).join('')}</div></div>` : ''}
+    <div class="field"><span>Belgingizni tanlang</span><div class="avatars" id="av">${AVATARS.map(a => `<button type="button" class="${a === avatar ? 'sel' : ''}">${a}</button>`).join('')}</div></div>
+    <button class="btn-main" id="go" style="width:100%">Kirish ▶</button></div></div>`;
+  let team = null;
+  if ($('#pinEdit')) $('#pinEdit').onclick = () => { $('#pinline').remove(); $('#pinField').classList.remove('hidden'); $('#pin').focus(); };
+  { const sel = $('#av .sel'); if (sel) sel.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+  if ($('#tm')) $('#tm').onclick = e => { const b = e.target.closest('button'); if (!b) return; team = Number(b.dataset.i); app.querySelectorAll('#tm button').forEach(x => x.classList.toggle('sel', x === b)); };
+  $('#av').onclick = e => { const b = e.target.closest('button'); if (!b) return; avatar = b.textContent; app.querySelectorAll('#av button').forEach(x => x.classList.toggle('sel', x === b)); };
+  $('#go').onclick = async () => {
+    const pin = $('#pin').value.trim(), name = $('#name').value.trim();
+    if (S.teams && team == null) return toast('Jamoangizni tanlang');
+    $('#go').disabled = true;
+    try {
+      const r = await fetch('/api/join', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pin, name, avatar, token, team }) });
+      const j = await r.json();
+      if (!r.ok) { toast(j.error || 'Xatolik'); return; }
+      token = j.token; store.set('token', token); store.set('name', name); store.set('pin', pin); store.set('avatar', avatar);
+      viewKey = ''; keepAwake(); connect();
+    } catch { toast('Internet aloqasini tekshiring'); }
+    finally { const b = $('#go'); if (b) b.disabled = false; }
+  };
+  $('#name').onkeydown = e => { if (e.key === 'Enter') $('#go').click(); };
+}
+function vKicked() {
+  app.innerHTML = `<div class="center-box"><div><div class="huge">🚪</div><h2>Siz o‘yindan chiqarildingiz</h2><button id="again">Qayta kirish</button></div></div>`;
+  $('#again').onclick = () => { token = ''; store.set('token', ''); viewKey = ''; connect(); };
+}
+function vLobby() {
+  app.innerHTML = `${topBar()}<div class="center-box"><div>
+    <div class="huge pulse">${esc(S.avatar)}</div>
+    <h2 style="margin-top:16px">Siz o‘yindasiz!</h2>
+    <p class="muted">Ismingiz ekranda ko‘rinadi. O‘qituvchi o‘yinni boshlashini kuting.</p>
+    <p class="muted">“${esc(S.title)}” · ${S.total} ta savol</p>
+    ${S.team ? `<div class="tcard" style="--tc:${S.team.color}"><span class="avatar">${S.team.emoji}</span>Jamoangiz: ${esc(S.team.name)}</div>` : ''}
+    <div class="lobbybrand">${brandHtml(true, 'Omad tilaymiz!')}</div></div></div>`;
+}
+function qMeta() { return `<div class="qmeta"><span style="white-space:nowrap;margin-right:10px">${S.idx + 1}-savol / ${S.total}</span><span>${esc(S.question.topic)}</span></div>`; }
+function vReady() {
+  app.innerHTML = `${topBar()}${qMeta()}
+    ${S.question.q ? `<div class="q pop">${esc(S.question.q)}</div>` : ''}
+    <div class="center-box"><div><div class="big">Tayyorlaning…</div><p class="muted">Javoblar hozir ochiladi</p></div></div>
+    <div class="timer-bar"><i id="tbar"></i></div>`;
+}
+function vQuestion() {
+  const answered = S.myChoice != null || pending != null;
+  const chosen = S.myChoice ?? pending;
+  const noText = !S.showOnPhone;
+  app.innerHTML = `${topBar()}${qMeta()}
+    ${S.question.q ? `<div class="q">${esc(S.question.q)}</div>` : ''}
+    <div class="tline" style="margin:0 0 12px"><div class="timer-bar"><i id="tbar"></i></div><span id="tsec"></span></div>
+    ${S.paused ? '<p class="center" style="color:var(--gold);font-weight:900">⏸ Pauza</p>' : ''}
+    <div class="answers ${noText ? 'nolabel' : ''}">${S.question.options.map((o, pos) =>
+      `<button class="ans ${OPTCLS[pos]} ${answered ? (o.i === chosen ? 'chosen' : 'faded') : ''}" data-i="${o.i}" ${answered || S.paused ? 'disabled' : ''}>
+        <span class="letter">${LETTERS[pos]}</span>${noText ? '' : `<span>${esc(o.text)}</span>`}</button>`).join('')}</div>
+    ${answered ? '<p class="center big pop" style="margin-top:18px">✓ Javob qabul qilindi</p><p class="center muted">Boshqalar kutilmoqda…</p>' : ''}`;
+  if (answered) return;
+  app.querySelector('.answers').onclick = async e => {
+    const b = e.target.closest('.ans'); if (!b || pending != null) return;
+    pending = Number(b.dataset.i); viewKey = ''; vQuestion();
+    try {
+      const r = await fetch('/api/answer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token, idx: S.idx, choice: pending }) });
+      if (!r.ok) { const j = await r.json().catch(() => ({})); toast(j.error || 'Javob qabul qilinmadi'); pending = null; viewKey = ''; render(); }
+    } catch { toast('Internet aloqasi yo‘q — qayta bosing'); pending = null; viewKey = ''; render(); }
+  };
+}
+function vResult() {
+  pending = null;
+  const r = S.result || {};
+  if (S.phase === 'reveal') document.body.className = r.correct ? 'good' : r.answered ? 'bad' : 'none';
+  const rankTxt = S.rank ? `<div class="big" style="margin-top:18px">${S.rank}-o‘rin</div><div class="muted">${S.players} o‘yinchidan · ${S.score} ball</div>` : '';
+  const gap = S.ahead && S.ahead.gap === 0 ? `<p><b>${esc(S.ahead.name)}</b> bilan ballaringiz teng — keyingi savolda o‘zib keting! 💪</p>`
+    : S.ahead ? `<p>Oldingizdagi <b>${esc(S.ahead.name)}</b> dan <b>${S.ahead.gap}</b> ball orqadasiz — yetib oling! 💪</p>` : S.rank === 1 && S.score > 0 ? '<p>Siz birinchisiz! 👑 O‘rningizni bermang.</p>' : '';
+  const head = S.phase === 'reveal'
+    ? (r.correct ? `<div class="huge pop">✅</div><div class="big">To‘g‘ri!</div><div class="big">+${r.points}</div>${r.bonus ? `<div>🔥 ketma-ketlik bonusi +${r.bonus}</div>` : ''}`
+      : r.answered ? `<div class="huge pop">❌</div><div class="big">Noto‘g‘ri</div>` : `<div class="huge pop">⌛</div><div class="big">Vaqt tugadi</div>`)
+    : `<div class="huge pop">🏅</div>`;
+  app.innerHTML = `${topBar()}<div class="center-box"><div style="width:100%">${head}
+    ${S.phase === 'reveal' && !r.correct ? `<div class="card" style="margin-top:16px;text-align:left"><div class="muted">To‘g‘ri javob:</div><div style="font-weight:900;font-size:1.1rem">${esc(r.correctText)}</div>${r.myText ? `<div class="muted" style="margin-top:8px">Sizning javobingiz: ${esc(r.myText)}</div>` : ''}</div>` : ''}
+    ${rankTxt}${gap}${S.phase === 'reveal' ? teamLine() : teamHtml()}</div></div>`;
+}
+function teamLine() {
+  if (!S.teamBoard) return '';
+  const mine = S.teamBoard.find(t => t.mine);
+  return `<div class="tcard" style="--tc:${mine.color}">${mine.emoji} ${esc(mine.name)} — ${mine.rank}-o‘rin · ${mine.score} ball</div>`;
+}
+function teamHtml() {
+  if (!S.teamBoard) return '';
+  const mine = S.teamBoard.find(t => t.mine);
+  return `<div class="card" style="margin-top:14px"><div style="font-weight:900">Jamoangiz ${mine.emoji} ${esc(mine.name)} — ${mine.rank}-o‘rin</div>
+    <div class="tlist">${S.teamBoard.map(t => `<div class="${t.mine ? 'mine' : ''}" style="--tc:${t.color}">${t.rank}. ${t.emoji} ${esc(t.name)}<b>${t.score}</b></div>`).join('')}</div>
+    <div class="muted" style="font-size:.8rem;margin-top:8px">Jamoa bali — a’zolarining o‘rtacha bali. Sizning har bir to‘g‘ri javobingiz jamoani oldinga suradi!</div></div>`;
+}
+function wonTeam() {
+  const [a, b] = S.teamBoard;
+  return a.mine && a.score > 0 && (!b || a.score > b.score);
+}
+function vFinal() {
+  const medal = ['🥇', '🥈', '🥉'][S.rank - 1] || '🎉';
+  const m = S.mistakes || [];
+  app.innerHTML = `${topBar()}<div class="center" style="margin-top:10px">
+    <div class="huge pop">${medal}</div>
+    <div class="big">${S.rank ? S.rank + '-o‘rin' : ''}</div>
+    <div class="muted">${S.players} o‘yinchidan · ${S.score} ball · ${S.correctCount} / ${S.done} to‘g‘ri</div></div>
+    ${m.length ? `<button class="btn-main" id="prac" style="width:100%;margin:16px 0 4px">📚 Xatolarim ustida mashq qilish (${m.length})</button>
+      <p class="muted center" style="margin:0;font-size:.85rem">Xato savollar hammasi to‘g‘ri bo‘lguncha qayta chiqadi</p>` : ''}
+    ${S.teamBoard ? (wonTeam() ? '<div class="big center pop" style="margin-top:16px">🎉 Jamoangiz g‘olib!</div>' : '') + teamHtml() : ''}
+    <h3 style="margin-top:20px">G‘oliblar</h3>
+    <div class="podium-list" style="margin-top:0">${(S.podium || []).map((p, i) => `<div>${['🥇', '🥈', '🥉'][i]} ${esc(p.avatar)} ${esc(p.name)}<b>${p.score}</b></div>`).join('')}</div>
+    ${m.length ? `<h3>Xato qilgan savollaringiz</h3>${m.map(x => `<div class="mist"><div class="muted" style="font-size:.85rem">№${x.n} · ${esc(x.topic)}</div><div style="font-weight:800">${esc(x.q)}</div>
+        ${x.options.map((o, i) => i === x.correct ? `<div class="o ok">✔ ${esc(o)}</div>` : i === x.mine ? `<div class="o my">${esc(o)}</div>` : '').join('')}
+        ${x.mine == null ? '<div class="o muted">Javob bermagansiz</div>' : ''}</div>`).join('')}`
+      : (S.done ? '<div class="card center"><div class="big">Barcha javoblar to‘g‘ri! 🌟</div></div>' : '')}
+    <div class="footer">${brandHtml(false)}</div>`;
+  if (m.length) $('#prac').onclick = () => startPractice(m);
+}
+
+// ---------- xatolar ustida mashq (telefonning o'zida) ----------
+function startPractice(list) {
+  practice = { queue: list.map(x => ({ ...x })).sort(() => Math.random() - .5), done: 0, total: list.length, tries: 0 };
+  scrollTo(0, 0); pQuestion();
+}
+function pQuestion() {
+  const P = practice;
+  if (!P.queue.length) {
+    app.innerHTML = `<div class="center-box"><div><div class="huge pop">🎓</div><div class="big">Barakalla!</div>
+      <p>${P.total} ta savolning hammasiga to‘g‘ri javob berdingiz (${P.tries} urinish).</p>
+      <button class="btn-main" id="again">Yana bir bor</button> <button id="back">Natijalarga qaytish</button></div></div>`;
+    $('#again').onclick = () => startPractice(S.mistakes);
+    $('#back').onclick = () => { practice = null; viewKey = ''; render(); };
+    return;
+  }
+  const x = P.queue[0];
+  scrollTo(0, 0);
+  const order = x.options.map((_, i) => i).sort(() => Math.random() - .5);
+  document.body.className = '';
+  app.innerHTML = `<div class="bar"><div class="me">📚 Mashq</div><span class="sc">${P.done} / ${P.total}</span></div>
+    <div class="timer-bar" style="margin-bottom:12px"><i style="transform:scaleX(${P.done / P.total})"></i></div>
+    <div class="q">${esc(x.q)}</div>
+    <div class="answers">${order.map((i, pos) => `<button class="ans ${OPTCLS[pos]}" data-i="${i}"><span class="letter">${LETTERS[pos]}</span><span>${esc(x.options[i])}</span></button>`).join('')}</div>
+    <div id="fb"></div>
+    <button class="btn-ghost" id="quit" style="margin-top:16px">Mashqni tugatish</button>`;
+  $('#quit').onclick = () => { practice = null; viewKey = ''; render(); };
+  app.querySelector('.answers').onclick = e => {
+    const b = e.target.closest('.ans'); if (!b || b.disabled) return;
+    P.tries++;
+    const ok = Number(b.dataset.i) === x.correct;
+    app.querySelectorAll('.ans').forEach(a => { a.disabled = true; if (Number(a.dataset.i) === x.correct) a.classList.add('chosen'); else a.classList.add('faded'); });
+    P.queue.shift();
+    if (ok) P.done++; else P.queue.splice(Math.min(2, P.queue.length), 0, x);   // xato savol 2 ta savoldan keyin yana chiqadi
+    if (navigator.vibrate) navigator.vibrate(ok ? 50 : [50, 50, 50]);
+    $('#fb').innerHTML = `<div class="fb" style="background:${ok ? 'rgba(47,191,113,.4)' : 'rgba(229,72,77,.45)'}">${ok ? '✅ To‘g‘ri!' : '❌ Noto‘g‘ri. To‘g‘ri javob: ' + esc(x.options[x.correct]) + ' — bu savol yana chiqadi.'}</div>
+      <button class="btn-main" id="nx" style="width:100%;margin-top:12px">Keyingisi →</button>`;
+    $('#nx').onclick = pQuestion;
+    $('#fb').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+}
+
+// ---------- taymer chizig'i ----------
+function tick() {
+  const bar = $('#tbar');
+  if (bar && S) {
+    let frac = 0;
+    if (S.phase === 'question') frac = Math.min(1, (S.paused ? S.remaining : Math.max(0, S.deadline - now())) / (S.timeTotal || 1));
+    if (S.phase === 'get_ready') frac = Math.max(0, S.phaseEnds - now()) / (S.readTotal || 1);
+    bar.style.transform = `scaleX(${frac})`;
+    const sec = $('#tsec');
+    if (sec && S.phase === 'question') { const v = Math.ceil(frac * (S.timeTotal || 0) / 1000); sec.textContent = v + ' s'; sec.classList.toggle('low', v <= 5); }
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+connect();
+</script>
+</body>
+</html>

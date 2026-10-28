@@ -1,0 +1,45 @@
+{
+  "title": "Namuna test (iqtisodiyot asoslari)",
+  "source": "namuna",
+  "topics": [
+    "Bozor va narx",
+    "Pul va bank"
+  ],
+  "questions": [
+    {
+      "n": 1,
+      "t": 0,
+      "q": "Talab oshib, taklif o‘zgarmasa, narx odatda qanday o‘zgaradi?",
+      "o": ["Oshadi", "Kamayadi", "O‘zgarmaydi", "Nolga tushadi"],
+      "a": 0
+    },
+    {
+      "n": 2,
+      "t": 0,
+      "q": "Bozorda bitta sotuvchi bo‘lgan holat qanday ataladi?",
+      "o": ["Monopoliya", "Erkin raqobat", "Oligopoliya", "Barter"],
+      "a": 0
+    },
+    {
+      "n": 3,
+      "t": 0,
+      "q": "Taklif egri chizig‘i odatda qaysi tomonga og‘ishgan bo‘ladi?",
+      "o": ["Yuqoriga (o‘sib boradi)", "Pastga (kamayib boradi)", "Gorizontal", "Vertikal"],
+      "a": 0
+    },
+    {
+      "n": 4,
+      "t": 1,
+      "q": "Inflyatsiya nima?",
+      "o": ["Narxlar umumiy darajasining o‘sishi", "Ishsizlikning kamayishi", "Soliqlarning kamayishi", "Eksportning o‘sishi"],
+      "a": 0
+    },
+    {
+      "n": 5,
+      "t": 1,
+      "q": "Markaziy bank asosiy stavkani oshirsa, kreditlar odatda qanday bo‘ladi?",
+      "o": ["Qimmatlashadi", "Arzonlashadi", "O‘zgarmaydi", "Bepul bo‘ladi"],
+      "a": 0
+    }
+  ]
+}

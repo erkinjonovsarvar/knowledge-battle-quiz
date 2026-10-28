@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecc964"/><stop offset="1" stop-color="#b8901c"/></linearGradient>
+    <linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c3963"/><stop offset="1" stop-color="#07152b"/></linearGradient>
+  </defs>
+  <!-- qalqon -->
+  <path d="M60 6 L104 20 V58 C104 86 84 104 60 114 C36 104 16 86 16 58 V20 Z" fill="url(#n)" stroke="url(#g)" stroke-width="4"/>
+  <path d="M60 14 L97 26 V58 C97 82 80 97 60 106 C40 97 23 82 23 58 V26 Z" fill="none" stroke="#c9a227" stroke-opacity=".35" stroke-width="1.2"/>
+  <!-- o'sish ustunlari -->
+  <rect x="36" y="62" width="10" height="20" rx="1.5" fill="url(#g)"/>
+  <rect x="55" y="52" width="10" height="30" rx="1.5" fill="url(#g)"/>
+  <rect x="74" y="40" width="10" height="42" rx="1.5" fill="url(#g)"/>
+  <polyline points="33,58 50,46 62,50 84,30" fill="none" stroke="#f6f2e7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 28 L87 28 L87 37" fill="none" stroke="#f6f2e7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="32" y1="86" x2="88" y2="86" stroke="#c9a227" stroke-width="2"/>
+  <text x="60" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" font-weight="700" letter-spacing="2" fill="#e6c35c">PU</text>
+</svg>

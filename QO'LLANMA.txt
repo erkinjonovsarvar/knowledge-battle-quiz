@@ -1,0 +1,67 @@
+BILIMLAR BELLASHUVI — jonli test o'yini
+=======================================
+
+ISHGA TUSHIRISH
+1. Ish stolidagi "Iqtisodiy bellashuv (Profi University)" belgisini
+   (yoki "O'YINNI BOSHLASH.bat" faylini) ikki marta bosing.
+   Qora oyna ochiladi — o'yin davomida uni YOPMANG.
+2. Brauzerda o'qituvchi ekrani o'zi ochiladi (http://localhost:3777/host).
+   Uni proyektorga chiqaring (⛶ tugmasi — to'liq ekran).
+3. Mavzular, savollar soni va vaqtni tanlab, "O'yin xonasini ochish" ni bosing.
+4. Ekranda havola, PIN kod va QR-kod chiqadi. O'quvchilar telefondan QR-kodni
+   skanerlaydi (yoki havolani ochadi), ism-familiyasini yozib kiradi.
+   Internet havolasi har safar YANGI bo'ladi va 30-60 soniyada ishga tushadi.
+5. Hamma kirgach "Boshlash" ni bosing.
+
+O'YIN PAYTIDA (o'qituvchi)
+- Pauza / Davom etish, +10 soniya, "Javoblarni ochish" (vaqtni kutmasdan).
+- Hamma javob bersa, natija o'zi ochiladi.
+- Ekranda kim hali javob bermagani ko'rinadi.
+- Lobbyda o'quvchi ismini bossangiz — o'yindan chiqariladi.
+- "O'yinni tugatish" — istalgan paytda yakunlash (natijalar saqlanadi).
+
+BALL
+- To'g'ri javob: 500–1000 ball (qancha tez bo'lsa, shuncha ko'p).
+- Ketma-ket to'g'ri javoblar uchun bonus: +100, +200 ... +500 🔥
+- Noto'g'ri yoki javobsiz: 0 ball, ketma-ketlik uziladi.
+
+JAMOA REJIMI
+- Sozlamada "Jamoa rejimi": 3, 4 yoki 5 ta jamoa (Burgutlar 🦅, Delfinlar 🐬,
+  Sherlar 🦁, Bo'rilar 🐺, Yulduzlar ⭐).
+- Har bir o'quvchi baribir o'z telefonidan O'ZI javob beradi, shaxsiy bali va
+  shaxsiy reytingi saqlanadi.
+- Jamoa bali = a'zolarining O'RTACHA bali (jamoalarda odam soni har xil bo'lsa
+  ham adolatli: 8 kishilik jamoa 7 kishilikdan faqat soni ko'pligi uchun yutmaydi).
+- Taqsimlash: "Avtomatik, teng bo'lib" yoki "O'quvchi o'zi tanlaydi".
+- Lobbyda: ⇄ — o'quvchini keyingi jamoaga o'tkazish, ✕ — chiqarish,
+  "Teng aralashtirish" — hammani tasodifiy va teng qilib qayta bo'lish.
+- Har savoldan keyin jamoalar poygasi (chiziqlar) + eng kuchli 5 o'yinchi.
+- Oxirida g'olib jamoa, jamoalar jadvali va shaxsiy g'oliblar shohsupasi.
+  Excel faylida "Jamoa" ustuni va pastda jamoalar jadvali bo'ladi.
+- Kech kirgan o'quvchi eng kam odamli jamoaga qo'shiladi.
+
+OXIRIDA
+- G'oliblar shohsupasi, barcha natijalar, eng qiyin savollar tahlili.
+- Natija Excel (CSV) faylida avtomatik saqlanadi: "natijalar" papkasi.
+- Har o'quvchi telefonida o'z xatolarini ko'radi va "Xatolarim ustida mashq"
+  rejimida ularni hammasi to'g'ri bo'lguncha qayta ishlaydi.
+
+YANGI TEST QO'SHISH
+- O'qituvchi ekranida "Yangi test yuklash" — Word (.docx) yoki .txt fayl.
+- Format: savol / ==== / #to'g'ri javob / ==== / variant / ==== / variant / ++++
+  "1-mavzu: ..." qatorlari mavzu bo'lib olinadi.
+
+UNIVERSITET NOMI VA LOGOTIP
+- Universitet, fakultet va o'yin nomi: public\brand.js faylida (Bloknot bilan
+  ochib o'zgartirish mumkin).
+- Rasmiy logotip bo'lsa: uni public\logo.png nomi bilan qo'ying — emblema
+  o'rniga hamma ekranda o'sha chiqadi.
+
+BOSHQA QURILMADAN BOSHQARISH
+- Admin ekraniga telefon yoki boshqa kompyuterdan ham kirish mumkin:
+  <havola>/host — parol qora oynada yozilgan (sozlamalar.json da saqlanadi).
+
+ESLATMA
+- O'yin ma'lumotlari kompyuter xotirasida saqlanadi: o'yin paytida qora oynani
+  yopsangiz, joriy o'yin yo'qoladi (yakunlangan o'yinlar natijalar papkasida qoladi).
+- Telefon sahifasi yangilansa ham o'quvchi ballari bilan o'yinda qoladi.

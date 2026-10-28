@@ -1,0 +1,89 @@
+/* Profi University · Iqtisodiyot — akademik uslub: to'q ko'k (navy) + oltin */
+:root {
+  --navy-950: #050f20; --navy-900: #07152b; --navy-800: #0b1f3a; --navy-700: #13294b; --navy-600: #1c3963;
+  --bg1: var(--navy-800); --bg2: var(--navy-900);
+  --ivory: #f6f2e7; --ink: #0b1f3a;
+  --gold: #c9a227; --gold-2: #e6c35c; --gold-soft: rgba(201,162,39,.18);
+  --card: rgba(19,41,75,.62); --card2: rgba(255,255,255,.08); --line: rgba(230,195,92,.22); --line-soft: rgba(255,255,255,.1);
+  --text: var(--ivory); --muted: rgba(246,242,231,.66);
+  --a: #b8423c; --b: #2c5aa8; --c: #b8821c; --d: #2a7f5b;
+  --ok: #2fa572; --bad: #c94a44;
+  --radius: 14px;
+  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --sans: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font-family: var(--sans); color: var(--text); font-weight: 500;
+  font-variant-numeric: lining-nums;   /* Playfair raqamlari bir tekis bo'lsin (PIN, ball, taymer) */
+  background:
+    radial-gradient(900px 520px at 88% -8%, rgba(201,162,39,.16), transparent 62%),
+    radial-gradient(900px 600px at -5% 105%, rgba(44,90,168,.28), transparent 60%),
+    linear-gradient(180deg, var(--navy-800), var(--navy-950));
+  background-attachment: fixed; min-height: 100vh; -webkit-tap-highlight-color: transparent;
+}
+/* fon: moliyaviy jadval to'ri va o'sish chizig'i */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .55;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600' preserveAspectRatio='none'%3E%3Cpolyline fill='none' stroke='%23c9a227' stroke-opacity='.18' stroke-width='2' points='0,520 90,500 170,515 250,460 330,470 410,410 490,430 570,360 650,380 730,300 810,320 890,250 970,270 1050,190 1130,170 1200,120'/%3E%3Cpolyline fill='none' stroke='%232c5aa8' stroke-opacity='.22' stroke-width='2' points='0,560 120,545 240,550 360,520 480,530 600,490 720,500 840,450 960,460 1080,410 1200,400'/%3E%3C/svg%3E"),
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  background-position: bottom, 0 0, 0 0;
+}
+h1, h2, h3 { margin: 0 0 12px; line-height: 1.2; font-family: var(--serif); font-weight: 700; letter-spacing: .005em; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; border: 1px solid var(--line-soft); border-radius: 10px; padding: 11px 18px; font-weight: 700; background: var(--card2); transition: transform .08s, filter .15s, background .15s; }
+button:hover { filter: brightness(1.15); }
+button:active { transform: scale(.97); }
+button:disabled { opacity: .45; cursor: default; transform: none; }
+.btn-main { background: linear-gradient(180deg, var(--gold-2), var(--gold)); color: var(--ink); border: 0; font-size: 1.05rem; font-weight: 800; padding: 13px 26px; box-shadow: 0 6px 18px rgba(201,162,39,.25), inset 0 1px 0 rgba(255,255,255,.4); letter-spacing: .01em; }
+.btn-ok { background: var(--ok); color: #fff; }
+.btn-warn { background: rgba(201,74,68,.85); border-color: transparent; }
+.btn-ghost { background: transparent; border: 1px solid var(--line); }
+input[type=text], input[type=number], input[type=password], select {
+  background: rgba(5,15,32,.55); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; width: 100%; outline: none;
+}
+input:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+select option { color: #111; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; backdrop-filter: blur(8px); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.hidden { display: none !important; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.grow { flex: 1; }
+.gold { color: var(--gold-2); }
+
+/* universitet belgisi */
+.brandbar { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brandbar .emb { width: 42px; height: 42px; flex: none; object-fit: contain; }
+.brandbar .uni { font-family: var(--sans); font-weight: 800; font-size: .72rem; letter-spacing: .26em; color: var(--gold-2); text-transform: uppercase; line-height: 1.2; }
+.brandbar .ttl { font-family: var(--serif); font-weight: 700; font-size: 1.12rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brandbar.lg { flex-direction: column; text-align: center; gap: 8px; }
+.brandbar.lg .emb { width: 84px; height: 84px; }
+.brandbar.lg .uni { font-size: .82rem; }
+.brandbar.lg .ttl { font-size: 1.7rem; white-space: normal; }
+.brandbar .sub { color: var(--muted); font-size: .85rem; }
+.rule { height: 1px; border: 0; margin: 14px auto; width: 120px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+/* javob kataklari */
+.opt-a { background: var(--a); } .opt-b { background: var(--b); } .opt-c { background: var(--c); } .opt-d { background: var(--d); }
+.opt-e { background: #6a4aa8; } .opt-f { background: #1d7f80; }
+.letter { display: inline-grid; place-items: center; width: 1.9em; height: 1.9em; border-radius: 8px; background: rgba(5,15,32,.28); border: 1px solid rgba(255,255,255,.25); font-family: var(--serif); font-weight: 700; flex: none; }
+
+.timer-bar { height: 6px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.timer-bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-2)); transform-origin: left; }
+
+.avatar { font-size: 1.6em; line-height: 1; }
+.chip { display: inline-flex; align-items: center; gap: 8px; background: var(--card2); border: 1px solid var(--line-soft); border-radius: 99px; padding: 7px 14px; font-weight: 700; }
+
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: rgba(5,15,32,.92); border: 1px solid var(--line); padding: 12px 18px; border-radius: 12px; z-index: 50; max-width: 90vw; }
+.conn { position: fixed; top: 10px; right: 10px; font-size: .8rem; padding: 4px 10px; border-radius: 99px; background: var(--bad); z-index: 40; }
+
+@keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes rise { from { transform: translateY(18px); opacity: 0; } to { transform: none; opacity: 1; } }
+.pop { animation: pop .35s cubic-bezier(.2,1.4,.4,1) both; }
+.rise { animation: rise .4s ease both; }
+@media (prefers-reduced-motion: reduce) { .pop, .rise { animation: none; } }

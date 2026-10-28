@@ -1,0 +1,11 @@
+# Admin paroli — hech qachon GitHub'ga yuklanmaydi
+sozlamalar.json
+
+# O'quvchilar natijalari (shaxsiy ma'lumot)
+natijalar/
+
+# Tunnel dasturi (cloudflared) — har kim o'zi yuklab oladi
+*.exe
+
+# Rasmiy logotip (ixtiyoriy, har universitet o'ziniki)
+public/logo.png
